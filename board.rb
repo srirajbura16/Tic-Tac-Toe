@@ -13,11 +13,21 @@ class Board
     end
   end
 
-  def horizontals
-    horizontals = []
+  def check_
+
+  def verticles
+    verticles = []
     3.times do |i|
-      horizontals << @board[0][i], @board[1][i], @board[2][i]
+      verticles << @board[0][i], @board[1][i], @board[2][i]
     end
-    horizontals
+    verticles
+  end
+
+  def horizontals
+    @board
+  end
+
+  def diagonals
+    [[ @board[0][0],@board[1][1],@board[2][2] ],[ @board[2][0],@board[1][1],@board[0][2] ]]
   end
 end 
