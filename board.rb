@@ -13,4 +13,11 @@ class Board
     end
   end
 
-end
+  def horizontals
+    horizontals = []
+    3.times do |i|
+      horizontals << @board[0][i], @board[1][i], @board[2][i]
+    end
+    horizontals
+  end
+end 
