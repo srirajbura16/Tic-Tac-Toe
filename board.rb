@@ -13,7 +13,33 @@ class Board
     end
   end
 
-  def check_
+  def check_winner?(symbol)
+    winning_diagonal?(symbol) ||
+    winning_horizontal?(symbol) ||
+    winning_verticle?(symbol)
+  end
+
+  def check_tie?(symbol)
+    @board.all? { |row| !row.all?(&:nil?) }
+  end
+
+  def winning_verticle?(symbol)
+    verticles.any? do |verticle|
+      verticle.all? { |cell| cell == symbol }
+    end
+  end
+
+  def winning_horizontal?(symbol)
+    horizontals.any? do |horizontal|
+      horizontal.all? { |cell| cell == symbol }
+    end
+  end
+
+  def winning_diagonal?(symbol)
+    diagonals.any? do |diagonal|
+      diagonal.all? { |cell| cell == symbol }
+    end
+  end
 
   def verticles
     verticles = []
